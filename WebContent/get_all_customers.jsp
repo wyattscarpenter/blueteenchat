@@ -49,46 +49,22 @@
 
                     out.println("<tr>"); // Start printing out the new table row
                     out.println( // Print each attribute value
-                         "<td align=\"center\">" + cs.getString("name") +
-                         "</td><td align=\"center\"> " + cs.getString("hashcode")+
-                         "</td><td align=\"center\"> " + cs.getString("message") + "</td>");
+                         "<td>" + cs.getString("name") +
+                         "</td><td> " + cs.getString("hashcode")+
+                         "</td><td> " + cs.getString("message") + "</td>");
                     out.println("</tr>");
                }
             %>
           </table>
           <form action="get_all_customers.jsp">
-            <!-- The form organized in an HTML table for better clarity. -->
-            <table border=1>
-                <tr>
-                    <th colspan="2">Enter message:</th>
-                </tr>
-                <tr>
-                    <td>Name:</td>
-                    <td><div style="text-align: center;">
-                    <input type=text name=name>
-                    </div></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><div style="text-align: center;">
-                    <input type=text name=address>
-                    </div></td>
-                </tr>
-                <tr>
-                    <td>Message:</td>
-                    <td><div style="text-align: center;">
-                    <input type=text name=category>
-                    </div></td>
-                </tr>
-                <tr>
-                    <td><div style="text-align: center;">
-                    <input type=reset value=Clear>
-                    </div></td>
-                    <td><div style="text-align: center;">
-                    <input type=submit value=Insert>
-                    </div></td>
-                </tr>
-            </table>
+                   Name: <input type=text name=name>
+                   Password: <input type=text name=address>
+                   Message: <input type=text name=category>
+                   <input type=reset value=Clear>
+                   <input type=submit value=Insert>
+       	 </form>
+        <form action="get_all_customers.jsp">
+                   <input type=submit value=refresh>
         </form>
     </body>
 </html>
