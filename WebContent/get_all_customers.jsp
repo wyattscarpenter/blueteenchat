@@ -59,7 +59,7 @@
                    <input type=reset value=Clear>
                    <input type=submit value=Insert>
        	 </form>
-        <form action="get_all_customers.jsp">
+        <form action="get_all_customers.jsp" id="refresh">
                    <input type=submit value=refresh>
         </form>
     </body>

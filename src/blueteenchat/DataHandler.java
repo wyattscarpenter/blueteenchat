@@ -50,9 +50,9 @@ public class DataHandler {
 			MessageDigest md;
 			md = MessageDigest.getInstance("SHA-256");
 			byte[] digest = md.digest((address+"salty string right here").getBytes());
-			int digestint = digest[0]*0x100 + digest[1];
+			String trip = Integer.toHexString(digest[0]+128) + Integer.toHexString(digest[1]+128);
 			stmt.setString(2, new String(digest));
-			stmt.setString(1, name+"#"+ Integer.toHexString(digestint).toUpperCase());
+			stmt.setString(1, name+"#"+ trip.toUpperCase());
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
