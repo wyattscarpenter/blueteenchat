@@ -35,9 +35,6 @@
                 <h4>Name</h4>
               </td>
               <td align="center">
-                <h4>Hashcode</h4>
-              </td>
-              <td align="center">
                 <h4>Message</h4>
               </td>
             </tr>
@@ -50,7 +47,6 @@
                     out.println("<tr>"); // Start printing out the new table row
                     out.println( // Print each attribute value
                          "<td>" + cs.getString("name") +
-                         "</td><td> " + cs.getString("hashcode")+
                          "</td><td> " + cs.getString("message") + "</td>");
                     out.println("</tr>");
                }

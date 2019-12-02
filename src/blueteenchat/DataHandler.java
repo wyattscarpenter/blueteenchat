@@ -46,11 +46,13 @@ public class DataHandler {
 		final String sqlQuery = "INSERT INTO msgs VALUES (?, ?, ?)";
 		final PreparedStatement stmt = conn.prepareStatement(sqlQuery);
 		// Replace the '?' in the above statement with the given attribute values
-		stmt.setString(1, name);
-		MessageDigest md;
 		try {
+			MessageDigest md;
 			md = MessageDigest.getInstance("SHA-256");
-			stmt.setString(2, new String(md.digest(address.getBytes())));
+			byte[] digest = md.digest((address+"salty string right here").getBytes());
+			int digestint = digest[0]*0x100 + digest[1];
+			stmt.setString(2, new String(digest));
+			stmt.setString(1, name+"#"+ Integer.toHexString(digestint).toUpperCase());
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
