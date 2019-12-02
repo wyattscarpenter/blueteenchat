@@ -4,7 +4,7 @@
 <html>
     <head>
     <meta charset="UTF-8">
-        <title>👻 Blueteen Chat</title>
+        <title>👻 Blueteen Chat!</title>
     </head>
     <body>
         <%@page import="blueteenchat.DataHandler"%>
