@@ -58,7 +58,7 @@
           </table>
           <form action="get_all_customers.jsp">
                    Name: <input type=text name=name>
-                   Password: <input type=text name=address>
+                   Password: <input type=password name=address>
                    Message: <input type=text name=category>
                    <input type=reset value=Clear>
                    <input type=submit value=Insert>
