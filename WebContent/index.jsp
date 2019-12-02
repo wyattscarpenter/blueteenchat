@@ -52,14 +52,14 @@
                }
             %>
           </table>
-          <form action="get_all_customers.jsp">
+          <form action="index.jsp">
                    Name: <input type=text name=name>
                    Password: <input type=password name=address>
                    Message: <input type=text name=category>
                    <input type=reset value=Clear>
                    <input type=submit value=Insert>
        	 </form>
-        <form action="get_all_customers.jsp" id="refresh">
+        <form action="index.jsp" id="refresh">
                    <input type=submit value=refresh>
         </form>
     </body>
