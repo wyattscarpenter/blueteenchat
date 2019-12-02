@@ -4,7 +4,7 @@
 <html>
     <head>
     <meta charset="UTF-8">
-        <title>👻</title>
+        <title>👻 Blueteen Chat</title>
     </head>
     <body>
         <%@page import="blueteenchat.DataHandler"%>
@@ -33,7 +33,7 @@
             <%
             	final ResultSet cs = handler.getAllCustomers();
                 while(cs.next()) {
-                    out.println("<tr><td>"+cs.getString("name")+": "+cs.getString("message")+"</td></tr>");
+                    out.println("<b>"+cs.getString("name")+"</b>: "+cs.getString("message")+"<br>");
                }
             %>
           </table>
