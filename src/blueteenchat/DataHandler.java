@@ -28,11 +28,8 @@ public class DataHandler {
 
 	//"CREATE TABLE msgs (id INT NOT NULL IDENTITY(1,1) PRIMARY KEY, name VARCHAR(100), hashcode VARCHAR(100), message VARCHAR(8000));"
 	
-	public ResultSet getAllCustomers() throws SQLException {
-		return getAllCustomers("0","10");
-	}
 	// Return the result of selecting everything from the movie_night table
-	public ResultSet getAllCustomers(String lower, String upper) throws SQLException {
+	public ResultSet getAllMessages() throws SQLException {
 		getDBConnection();
 		final String sqlQuery = "SELECT * FROM msgs;";
 		final PreparedStatement stmt = conn.prepareStatement(sqlQuery);
@@ -40,7 +37,7 @@ public class DataHandler {
 	}
 
 	// Inserts a record into the movie_night table with the given attribute values
-	public boolean addCustomer(String name, String address, String duration) throws SQLException {
+	public boolean addMessage(String name, String password, String message) throws SQLException {
 		getDBConnection(); // Prepare the database connection
 		// Prepare the SQL statement
 		final String sqlQuery = "INSERT INTO msgs VALUES (?, ?, ?)";
@@ -49,7 +46,7 @@ public class DataHandler {
 		try {
 			MessageDigest md;
 			md = MessageDigest.getInstance("SHA-256");
-			byte[] digest = md.digest((address+"salty string right here").getBytes());
+			byte[] digest = md.digest((password+"salty string right here").getBytes());
 			String trip = Integer.toHexString(digest[0]+128) + Integer.toHexString(digest[1]+128);
 			stmt.setString(2, new String(digest));
 			stmt.setString(1, name+"#"+ trip.toUpperCase());
@@ -57,7 +54,7 @@ public class DataHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		stmt.setString(3, duration);
+		stmt.setString(3, message);
 		// Execute the query, if only one record is updated, then we indicate success by returning true
 		return stmt.executeUpdate() == 1;
 	}
